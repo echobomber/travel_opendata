@@ -176,6 +176,13 @@ img{
     img{
         margin-right: 8px;
     }
+    a{
+        color: #000000;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
     & > div{
         display: flex;
         align-items: center;

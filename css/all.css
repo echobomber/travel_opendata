@@ -294,6 +294,15 @@ img {
   margin-right: 8px;
 }
 
+.content-info a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.content-info a:hover {
+  text-decoration: underline;
+}
+
 .content-info > div {
   display: -webkit-box;
   display: -ms-flexbox;
