@@ -68,7 +68,17 @@ table {
 
 body, html {
   height: 100%;
+  margin: 0;
   background: #f7f7f7;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -93px;
+}
+
+.index-main {
+  padding-bottom: 93px;
 }
 
 img {
@@ -174,19 +184,19 @@ img {
   background: #ff834f;
 }
 
-.hot-admin-btn input[value="新興區"] {
+.hot-admin-btn input[value="美濃區"] {
   background: #F5D105;
 }
 
-.hot-admin-btn input[value="新興區"]:hover {
+.hot-admin-btn input[value="美濃區"]:hover {
   background: #c3a604;
 }
 
-.hot-admin-btn input[value="鹽埕區"] {
+.hot-admin-btn input[value="六龜區"] {
   background: #559AC8;
 }
 
-.hot-admin-btn input[value="鹽埕區"]:hover {
+.hot-admin-btn input[value="六龜區"]:hover {
   background: #3981b1;
 }
 
@@ -260,16 +270,17 @@ img {
 
 .content-img a {
   display: block;
-  min-height: 155px;
-  background-image: url("../img/Hero.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  max-height: 308px;
 }
 
 .content-img a:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.content-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .content-img h3, .content-img h4 {

@@ -5,8 +5,17 @@
 }
 body, html{
     height: 100%;
+    margin: 0;
     background: #f7f7f7;
 }
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -93px;
+}
+.index-main{
+    padding-bottom: 93px;
+}
+// 讓 footer 置底 https://css-tricks.com/couple-takes-sticky-footer/
 img{
     max-width: 100%;
     display: block;
@@ -15,7 +24,6 @@ img{
     max-width: 960px;
     margin: 0 auto;
 }
-//讓 footer 置底 https://css-tricks.com/couple-takes-sticky-footer/
 .header{
     display: flex;
     justify-content: center;
@@ -85,13 +93,13 @@ img{
             background: #ff834f;
         }
     }
-    input[value="新興區"]{
+    input[value="美濃區"]{
         background: #F5D105;
         &:hover{
             background: #c3a604;
         }
     }
-    input[value="鹽埕區"]{
+    input[value="六龜區"]{
         background: #559AC8;
         &:hover{
             background: #3981b1;
@@ -150,14 +158,13 @@ img{
     color: #FFFFFF;
     a{
         display: block;
-        min-height: 155px;
-        background-image: url('../img/Hero.png');
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
+        max-height: 308px;
         &:hover{
             transform: scale(1.2);
         }
+    }
+    img{
+        object-fit: cover;
     }
     h3, h4{
         position: absolute;
