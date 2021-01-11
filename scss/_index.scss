@@ -1,0 +1,216 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    font-family: bubble, "微軟正黑體", "Microsoft JhengHei";
+    transition: all .2s;
+}
+body, html{
+    height: 100%;
+    background: #f7f7f7;
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+.wrap{
+    max-width: 960px;
+    margin: 0 auto;
+}
+//讓 footer 置底 https://css-tricks.com/couple-takes-sticky-footer/
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 380px;
+    background-image: url('../img/Hero.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.header-content{
+    text-align: center;
+    width: 30%;
+    h1{
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+        color: #ffffff;
+        margin-bottom: 96px;
+    }
+    select{
+        width: 100%;
+        padding: 5px;
+        font-size: 1.1rem;
+        // 再研究一下
+        background: 
+            url(../img/icons_down.png) no-repeat right 1.0625rem center/16px 11px,
+            rgba(255,255,255,0.70);
+        border: 3px solid #FFFFFF;
+        border-radius: 3px;
+        appearance:none;
+    }
+}
+.hot-admin{
+    position: relative;
+    top: -30px;
+    width: 78%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+    border-radius: 5px;
+    h3{
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+}
+.hot-admin-btn{
+    display: flex;
+    input{
+        border-radius: 5px;
+        border: 0;
+        padding: 10px 30px;
+        margin-right: 20px;
+        font-size: 1.25rem;
+        color: #FFFFFF;
+    }
+    input[value="苓雅區"]{
+        background: #8A82CC;
+        &:hover{
+            background: #685ebd;
+        }
+    }
+    input[value="三民區"]{
+        background: #FFA782;
+        &:hover{
+            background: #ff834f;
+        }
+    }
+    input[value="新興區"]{
+        background: #F5D105;
+        &:hover{
+            background: #c3a604;
+        }
+    }
+    input[value="鹽埕區"]{
+        background: #559AC8;
+        &:hover{
+            background: #3981b1;
+        }
+    }
+}
+.apart-line{
+    position: relative;
+    border-top: 2px dashed #559AC8;
+    margin: 10px 0 80px;
+}
+.apart-line-icon{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border: 2px solid #559AC8;
+    background: #f7f7f7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &::after{
+        content: '';
+        display: block;
+        width: 0;
+        border-right: 6px solid transparent;
+        border-left: 6px solid transparent;
+        border-top: 8px solid #559AC8;
+    }
+}
+.content-panel{
+
+    h2{
+        text-align: center;
+        font-size: 2.2rem;
+        color: #8A82CC;
+        margin-bottom: 30px;
+    }
+}
+.content-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.content{
+    width: 49%;
+    margin-bottom: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+}
+.content-img{
+    position: relative;
+    overflow: hidden;
+    color: #FFFFFF;
+    a{
+        display: block;
+        min-height: 155px;
+        background-image: url('../img/Hero.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+    h3, h4{
+        position: absolute;
+        bottom: 10px;
+    }
+    h3{
+        left: 20px;
+        font-size: 1.25rem;
+    }
+    h4{
+        right: 20px;
+    }
+}
+.content-info{
+    padding: 20px;
+    img{
+        margin-right: 8px;
+    }
+    & > div{
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    & > div:last-child{
+        position: relative;
+        margin-bottom: 0;
+        img{
+            margin-right: 14px;
+        }
+    }
+}
+.Ticketinfo{
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+//
+.footer{
+    background: #559AC8;
+    padding: 20px;
+    text-align: center;
+    p{
+        color: #ffffff;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        &:last-child{
+            color: #FFD366;
+            margin-bottom: 0;
+        }
+    }
+    a{
+        color: #FFD366;
+    }
+}
