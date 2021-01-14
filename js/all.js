@@ -1,4 +1,4 @@
-//https://ithelp.ithome.com.tw/articles/10229458
+//篩選資料參考  https://ithelp.ithome.com.tw/articles/10229458
 let adminList = document.querySelector('#adminList');
 let navBtn = document.querySelector('.hot-admin-btn');
 let contentBox = document.querySelector('.content-box');
@@ -70,7 +70,6 @@ function updateContent(updateData){
 function refreshContent(e){
     e.preventDefault();
     targetData = [];
-    // 改成嚴格等於
     if(e.target.nodeName === 'INPUT' || e.target.nodeName === 'SELECT'){
         let targetValue = e.target.value;
         document.querySelector('.content-panel > h2').textContent = targetValue;
@@ -92,12 +91,15 @@ function refreshContent(e){
 function pagination(targetData, nowPage = 1){
     // console.log(targetData);
     let dataLength = targetData.length;
-    let perPage = 6;
+    //一頁最多 5 個
+    let perPage = 5;
+    //總共會有多少頁
     let pageTotal = Math.ceil(dataLength / perPage);
     let currentPage = nowPage;
     if (currentPage > pageTotal) {
         currentPage = pageTotal;
     }
+    //用來判斷頁面資料的索引值
     let minData = (currentPage * perPage) - perPage + 1;
     let maxData = (currentPage * perPage);
     let singlePageData = [];
@@ -109,8 +111,10 @@ function pagination(targetData, nowPage = 1){
         }
     })
     // console.log(singlePageData);
+    //用物件傳遞分頁邏輯給 updatePageBtn 以更新按鈕 -> 物件屬性如果沒有設定值，會取用上方同名稱的變數作為值
     let pageInfo = {
         pageTotal,
+        //目前頁數，預設是 1，會根據 switchPage 傳進來的參數 nowPage 進行改變
         currentPage,
         hasPrev: currentPage > 1,
         hasNext: currentPage < pageTotal
@@ -118,7 +122,7 @@ function pagination(targetData, nowPage = 1){
     updateContent(singlePageData);
     updatePageBtn(pageInfo);
 }
-// 更新頁數按鈕
+// 更新頁數按鈕，用 data-page 判斷目前是第幾頁 
 function updatePageBtn(pageInfo){
     let str = '';
     let pageTotal = pageInfo.pageTotal;
@@ -128,11 +132,12 @@ function updatePageBtn(pageInfo){
     }else{
         str += `<li><span href="#" class="disabled">prev</span></li>`;
     }
-    //最多顯示 x 頁 -> 尚未完成
     for(let i=1; i<=pageTotal; i++){
         if(i === currentPage){
             str += `<li><a href="#" class="active" data-page="${i}">${i}</a></li>`;
-        }else{
+        }
+        //最多顯示 5 個 pageBtn，用 Math.ceil 判斷 i 與 currentPage 是不是在同一區間
+        else if(Math.ceil(i/5) === Math.ceil(currentPage/5)){
             str += `<li><a href="#" data-page="${i}">${i}</a></li>`;
         }
     }
@@ -143,7 +148,7 @@ function updatePageBtn(pageInfo){
     }
     pageBtn.innerHTML = str;
 }
-// switch page
+// 每次點擊分頁按鈕，都會將目前的頁數傳入 pagination 
 function switchPage(e){
     e.preventDefault();
     if(e.target.nodeName !== 'A') {return};
@@ -152,7 +157,11 @@ function switchPage(e){
     pagination(targetData, nowPage);
 }
 
-// 遠端撈 JSON
+// 主程式邏輯:
+// 把 xhr 撈回來的資料存進 data 當作原始資料，並設定一個 targetData 作為需要顯示的目標資料
+// 透過 zoneFilter 篩除重複的地區、更新 adminList，並各別在 navBtn, adminList 綁定 refreshContent 事件
+// refreshContent 判斷哪些是目標資料、將其塞入 targetData，並透過 pagination 處理分頁邏輯
+// pagination 接收兩種參數 (目標資料、當前頁面)，判斷該頁應該呈現哪些資料 (singlePageData)、透過 updateContent, updatePageBtn 更新內容
 let xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json', true);
 xhr.send(null);
