@@ -31,7 +31,7 @@ function updateContent(updateData){
         `
             <div class="content">
                 <div class="content-img">
-                    <a href="#"><img src="${updateData[i].Picture1}" alt=""></a>
+                    <a href="#" style="background-image: url(${updateData[i].Picture1});"></a>
                     <h3 class="content-title">
                         ${updateData[i].Name}
                     </h3>

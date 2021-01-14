@@ -270,17 +270,15 @@ img {
 
 .content-img a {
   display: block;
-  max-height: 308px;
+  height: 155px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .content-img a:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
-}
-
-.content-img img {
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .content-img h3, .content-img h4 {
@@ -342,6 +340,26 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pagination a {
+  text-decoration: none;
+  padding: 8px;
+  color: #000000;
+}
+
+.pagination a:hover {
+  color: #559AC8;
 }
 
 .footer {

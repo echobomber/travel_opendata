@@ -158,13 +158,13 @@ img{
     color: #FFFFFF;
     a{
         display: block;
-        max-height: 308px;
+        height: 155px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
         &:hover{
             transform: scale(1.2);
         }
-    }
-    img{
-        object-fit: cover;
     }
     h3, h4{
         position: absolute;
@@ -209,7 +209,20 @@ img{
     display: flex;
     align-items: center;
 }
-
+//
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    a{
+        text-decoration: none;
+        padding: 8px;
+        color: #000000;
+        &:hover{
+            color: #559AC8;
+        }
+    }
+}
 //
 .footer{
     background: #559AC8;
