@@ -362,6 +362,15 @@ img {
   color: #559AC8;
 }
 
+.pagination .active {
+  color: #559AC8;
+}
+
+.pagination .disabled {
+  color: #6c757d;
+  padding: 8px;
+}
+
 .footer {
   background: #559AC8;
   padding: 20px;
