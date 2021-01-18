@@ -371,6 +371,16 @@ img {
   padding: 8px;
 }
 
+.scrollTopBtn {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 120px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+}
+
 .footer {
   background: #559AC8;
   padding: 20px;

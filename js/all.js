@@ -156,7 +156,6 @@ function switchPage(e){
     // console.log(nowPage);
     pagination(targetData, nowPage);
 }
-
 // 主程式邏輯:
 // 把 xhr 撈回來的資料存進 data 當作原始資料，並設定一個 targetData 作為需要顯示的目標資料
 // 透過 zoneFilter 篩除重複的地區、更新 adminList，並各別在 navBtn, adminList 綁定 refreshContent 事件
@@ -182,3 +181,27 @@ pageBtn.addEventListener('click', switchPage, false);
 
 //直接使用 data 是會報錯的，如果加上 setTimeout 就可以正常顯示。但是如果是綁定事件，則不受影響 (因為使用者操作的時候資料已經跑完了)。
 //console.log(data)
+
+// scrollBtn
+let scrollTopBtn = document.querySelector('.scrollTopBtn');
+//即 HTML
+let rootElement = document.documentElement;
+function showScrollBtn() {
+    // 可以滾動的總高度
+    let scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+    if ((rootElement.scrollTop / scrollTotal ) > 0.60) {
+        scrollTopBtn.style.display = "block";
+    } else {
+        scrollTopBtn.style.display = "none";
+    }
+}
+function scrollToTop() {
+    //改用 window 也可以
+    rootElement.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })
+}
+scrollTopBtn.addEventListener("click", scrollToTop, false);
+//監測滾動
+document.addEventListener("scroll",  showScrollBtn, false);
